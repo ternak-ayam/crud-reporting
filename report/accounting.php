@@ -3,6 +3,13 @@ include '../model/Product.php';
 include '../model/RawMaterial.php';
 include '../config/auth.php';
 include '../config/supervisor.php';
+
+$material = new RawMaterial();
+$product = new Product();
+$materials = $material->rawMaterialValues();
+$material_value = $material->totalRawMaterialValues();
+$products = $product->productValues();
+$product_value = $product->totalProductValues();
 ?>
 
 <!DOCTYPE html>
@@ -12,14 +19,14 @@ include '../config/supervisor.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Handszer Corporation - Accounting Report</title>
+    <title>The Stirling Company - Accounting Report</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 
 <body>
-    <div class="p-5 bg-danger text-white text-center">
-        <h1>Handszer Corporation</h1>
-        <p>Production Handsbox Information system</p>
+    <div class="p-5 bg-primary text-white text-center">
+        <h1>The Stirling Company</h1>
+        <p>Production Information System</p>
     </div>
     <?php include('../navigation/index.php') ?>
     <div class="container mt-5">
@@ -46,7 +53,7 @@ include '../config/supervisor.php';
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Total Product Value</h5>
+                        <h5 class="card-title">Defect in WS 1 </h5>
                         <h1 class="text-mute">IDR <?=$product_value?></h1>
                     </div>
                 </div>
@@ -54,8 +61,8 @@ include '../config/supervisor.php';
             <div class="col-lg-6">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Total Inventory Value</h5>
-                        <h1 class="text-mute">IDR <?=$material_value?></h1>
+                        <h5 class="card-title">Defect in WS 2 </h5>
+                        <span><?= $product_value ?> Product</span>
                     </div>
                 </div>
             </div>
@@ -68,9 +75,6 @@ include '../config/supervisor.php';
                             <div class="col-6">
                                 <h5 class="card-title">Product Report</h5>
                             </div>
-                            <div class="col-6 text-end">
-                                <a href="#" class="btn btn-danger">Print</a>
-                            </div>
                         </div>
                         <table class="table">
                             <thead>
@@ -78,25 +82,23 @@ include '../config/supervisor.php';
                                     <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Qty</th>
-                                    <th scope="col">Cost of Good Solds</th>
+                                    <th scope="col">Cost of Goods Sold</th>
                                     <th scope="col">Selling Price</th>
                                     <th scope="col">Total COGS</th>
                                     <th scope="col">Total Price</th>
-                                    <th scope="col">Margin</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php $i = 1;
                                 foreach ($products as $product) { ?>
                                     <tr>
-                                        <th scope="row"><?= $i ?></th>
-                                        <td><?= $product['name'] ?></td>
-                                        <td><?= $product['qty'] ?></td>
-                                        <td><?= $product['cogs'] ?></td>
-                                        <td><?= $product['selling_price'] ?></td>
-                                        <td><?= $product['total_cogs'] ?></td>
-                                        <td><?= $product['total'] ?></td>
-                                        <td><?= $product['margin'] ?></td>
+                                        <th scope="row"><?= $i ?></th>                                        ....
+                                        <td><?= $product['name'] ?></td>  
+                                        <td><?= $product['qty'] ?></td>  
+                                        <td><?= $product['cogs'] ?></td>  
+                                        <td><?= $product['selling_price'] ?></td>  
+                                        <td><?= $product['total'] ?></td>  
+                                        <td><?= $product['margin'] ?></td>  
                                     </tr>
                                 <?php $i++;
                                 } ?>
@@ -112,14 +114,11 @@ include '../config/supervisor.php';
                             <div class="col-6">
                                 <h5 class="card-title">Inventory Report</h5>
                             </div>
-                            <div class="col-6 text-end">
-                                <a href="#" class="btn btn-danger">Print</a>
-                            </div>
                         </div>
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
+                                <th scope="col">#</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Qty</th>
                                     <th scope="col">Price</th>
@@ -130,11 +129,10 @@ include '../config/supervisor.php';
                                 <?php $i = 1;
                                 foreach ($materials as $material) { ?>
                                     <tr>
-                                        <th scope="row"><?= $i ?></th>
-                                        <td><?= $material['name'] ?></td>
-                                        <td><?= $material['qty'] ?></td>
-                                        <td><?= $material['price'] ?></td>
-                                        <td><?= $material['total'] ?></td>
+                                        <td><?= $material['name'] ?></td>  
+                                        <td><?= $material['qty'] ?></td> 
+                                        <td><?= $material['price'] ?></td>  
+                                        <td><?= $material['total'] ?></td> 
                                     </tr>
                                 <?php $i++;
                                 } ?>
@@ -145,10 +143,7 @@ include '../config/supervisor.php';
             </div>
         </div>
     </div>
-<div class="mt-5 p-4 bg-secondary text-white text-center">
-    <p>&copy Handszer Corporate</p>
-</div>
+    <div class="mt-5 p-4 bg-dark text-white text-center">
+        <p>&copy 2022 RYP x Ensyse Laboratory</p>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-</body>
-
-</html>
