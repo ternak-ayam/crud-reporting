@@ -24,9 +24,9 @@ $product_value = $product->totalProductValues();
 </head>
 
 <body>
-    <div class="p-5 bg-primary text-white text-center">
-        <h1>The Stirling Company</h1>
-        <p>Production Information System</p>
+    <div class="p-5 bg-danger text-white text-center">
+        <h1>Handszer Corporation</h1>
+        <p>Production Handsbox Information system</p>
     </div>
     <?php include('../navigation/index.php') ?>
     <div class="container mt-5">
@@ -143,7 +143,7 @@ $product_value = $product->totalProductValues();
             </div>
         </div>
     </div>
-    <div class="mt-5 p-4 bg-dark text-white text-center">
-        <p>&copy 2022 RYP x Ensyse Laboratory</p>
-    </div>
+<div class="mt-5 p-4 bg-secondary text-white text-center">
+    <p>&copy Handszer Corporate</p>
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
